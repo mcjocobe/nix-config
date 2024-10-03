@@ -23,18 +23,11 @@
     };
   };
   programs.zsh = {
-    autosuggestion.enable = true;
+    autosuggestion = {
+      enable = true;
+    };
     syntaxHighlighting = {
       enable = true;
-      highlighters = [
-        "main"
-        "brackets"
-        "pattern"
-        "cursor"
-        "regexp"
-        "root"
-        "line"
-      ];
     };
     dotDir = ".config/zsh";
     enable = true;
@@ -45,8 +38,10 @@
     #   [[ ! -f $(./p10k.zsh) ]] || source $(./p10k.zsh)
     # '';
     initExtra = ''
-        [[ ! -f ./p10k.zsh ]] || source ./p10k.zsh
-        if [[ $TERM != "dumb" ]]; then
+      export PATH=$PATH:/etc/profiles/per-user/josecolomer/bin
+      export PATH=$PATH:/run/current-system/sw/bin
+      export PATH=$PATH:/usr/local/bin
+      if [[ $TERM != "dumb" ]]; then
         # don't set STARSHIP_CONFIG automatically if there's a user-specified
         # config file.  starship appears to use a hardcoded config location
         # rather than one inside an XDG folder:
