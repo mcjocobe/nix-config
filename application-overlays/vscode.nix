@@ -16,6 +16,7 @@ vscode-overlay = final: prev: {
         ms-python.black-formatter
         ms-python.python
         ms-vscode-remote.remote-ssh
+        tamasfe.even-better-toml
       ];
     };
   };

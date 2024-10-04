@@ -11,16 +11,6 @@
   programs.home-manager.enable = true;
   programs.starship = {
     enable = true;
-    settings = {
-      # add_newline = false;
-
-      # character = {
-      #   success_symbol = "[➜](bold green)";
-      #   error_symbol = "[➜](bold red)";
-      # };
-
-      # package.disabled = true;
-    };
   };
   programs.zsh = {
     autosuggestion = {
@@ -28,6 +18,17 @@
     };
     syntaxHighlighting = {
       enable = true;
+      highlighters = [
+        "main"
+        "brackets"
+      ];
+      styles = {
+        "command*" = "fg=#a6d56e";
+        "precommand" = "fg=#a6d56e";
+        "arg0" = "fg=#a6d56e";
+        "alias" = "fg=#a6d56e";
+        "suffix-alias" = "fg=#a6d56e";
+      };
     };
     dotDir = ".config/zsh";
     enable = true;
@@ -46,9 +47,9 @@
         # config file.  starship appears to use a hardcoded config location
         # rather than one inside an XDG folder:
         # https://github.com/starship/starship/blob/686bda1706e5b409129e6694639477a0f8a3f01b/src/configure.rs#L651
-        # if [[ ! -f "$HOME/.config/starship.toml" ]]; then
-        #   export STARSHIP_CONFIG=$#{settingsFile}
-        # fi
+        if [[ ! -f "$HOME/.config/starship.toml" ]]; then
+           export STARSHIP_CONFIG=/Users/josecolomer/.config/starship/starship.toml
+        fi
         eval "$(${config.programs.starship.package}/bin/starship init zsh)"
       fi
     '';
@@ -70,6 +71,11 @@
       }
     ];
     # syntaxHighlighting.enable = true;
+  };
+  programs.neovim = {
+    plugins = [
+      pkgs.vimExtraPlugins.nvim-colorizer-lua
+    ];
   };
 
   # Home Manager needs a bit of information about you and the paths it should
@@ -129,7 +135,7 @@
   #
   # if you don't want to manage your shell through Home Manager.
   home.sessionVariables = {
-    # EDITOR = "vim";
+    EDITOR = "vim";
   };
 
   # Let Home Manager install and manage itself.

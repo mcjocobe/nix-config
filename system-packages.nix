@@ -11,7 +11,6 @@
     neovim
     nodejs
     postgresql
-    nerdfonts
     qmk
     ranger
     ripgrep
@@ -26,5 +25,10 @@
     wireguard-tools
     # Casks
     google-chrome
+  ];
+  fonts.packages = with pkgs; [
+    nerdfonts
+    powerline-fonts
+    powerline-symbols
   ];
 }
