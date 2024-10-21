@@ -1,6 +1,7 @@
 {pkgs, ...}: {
   environment.systemPackages = with pkgs; [
     alejandra
+    arp-scan
     autojump
     black
     direnv
