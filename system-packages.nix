@@ -9,6 +9,7 @@
     fzf
     git
     neovim
+    nmap
     nodejs
     postgresql
     qmk
