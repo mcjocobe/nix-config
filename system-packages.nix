@@ -4,6 +4,7 @@
     arp-scan
     autojump
     black
+    busybox
     direnv
     fasd
     fd
