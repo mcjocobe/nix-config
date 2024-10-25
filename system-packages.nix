@@ -5,6 +5,7 @@
     autojump
     black
     direnv
+    inetutils
     fasd
     fd
     fzf
