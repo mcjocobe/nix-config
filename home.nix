@@ -42,6 +42,10 @@
       export PATH=$PATH:/etc/profiles/per-user/josecolomer/bin
       export PATH=$PATH:/run/current-system/sw/bin
       export PATH=$PATH:/usr/local/bin
+
+      bindkey "^A" vi-beginning-of-line
+      bindkey "^E" vi-end-of-line
+
       if [[ $TERM != "dumb" ]]; then
         # don't set STARSHIP_CONFIG automatically if there's a user-specified
         # config file.  starship appears to use a hardcoded config location
