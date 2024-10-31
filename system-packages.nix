@@ -19,6 +19,7 @@
     ripgrep
     sops
     starship
+    thonny
     tmux
     tree
     vscode-configured
