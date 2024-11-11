@@ -14,6 +14,7 @@
     nmap
     nodejs
     postgresql
+    prettierd
     qmk
     ranger
     ripgrep
@@ -27,6 +28,7 @@
     mosquitto
     wireguard-go
     wireguard-tools
+    wireshark
     # Casks
     google-chrome
   ];
