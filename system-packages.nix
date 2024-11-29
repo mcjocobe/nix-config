@@ -10,11 +10,13 @@
     fd
     fzf
     git
+    keepassxc
     neovim
     nmap
     nodejs
     postgresql
     prettierd
+    python311
     qmk
     ranger
     ripgrep
