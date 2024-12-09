@@ -43,7 +43,7 @@
       ];
       specialArgs = {inherit inputs;};
     };
-    niosConfigurations."nixos" = nixpkgs.lib.nixosSystem {
+    nixosConfigurations."nixos" = nixpkgs.lib.nixosSystem {
       modules = [
         configuration
         ./application-overlays/vscode.nix
@@ -63,6 +63,10 @@
 
     # Expose the package set, including overlays, for convenience.
     darwinPackages = self.darwinConfigurations."MK7M66VTWLC".pkgs;
+<<<<<<< HEAD
     nixosPackages = self.niosConfigurations."nixos".pkgs;
+=======
+    nixosPackages = self.nixosConfigurations."nixos".pkgs;
+>>>>>>> dc99aedda3c594912af123d3d969355a6210abe2
   };
 }
