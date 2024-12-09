@@ -43,8 +43,26 @@
       ];
       specialArgs = {inherit inputs;};
     };
+    niosConfigurations."nixos" = nixpkgs.lib.nixosSystem {
+      modules = [
+        configuration
+        ./application-overlays/vscode.nix
+        ./system-packages.nix
+        home-manager.darwinModules.home-manager
+        {
+          home-manager.useGlobalPkgs = true;
+          home-manager.useUserPackages = true;
+          home-manager.users.josecolomer = import ./home.nix;
+
+          # Optionally, use home-manager.extraSpecialArgs to pass
+          # arguments to home.nix
+        }
+      ];
+      specialArgs = {inherit inputs;};
+    };
 
     # Expose the package set, including overlays, for convenience.
     darwinPackages = self.darwinConfigurations."MK7M66VTWLC".pkgs;
+    nixosPackages = self.niosConfigurations."nixos".pkgs;
   };
 }
