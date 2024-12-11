@@ -48,6 +48,9 @@
         configuration
         ./application-overlays/vscode.nix
         ./system-packages.nix
+	./nixos.nix
+	./hardware-configuration.nix
+	./configuration.nix
         home-manager.darwinModules.home-manager
         {
           home-manager.useGlobalPkgs = true;
@@ -63,10 +66,6 @@
 
     # Expose the package set, including overlays, for convenience.
     darwinPackages = self.darwinConfigurations."MK7M66VTWLC".pkgs;
-<<<<<<< HEAD
-    nixosPackages = self.niosConfigurations."nixos".pkgs;
-=======
     nixosPackages = self.nixosConfigurations."nixos".pkgs;
->>>>>>> dc99aedda3c594912af123d3d969355a6210abe2
   };
 }
