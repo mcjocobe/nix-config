@@ -22,13 +22,14 @@
       # Set Git commit hash for darwin-version.
       system.configurationRevision = self.rev or self.dirtyRev or null;
     };
-    HOME_DIR = if nixpkgs.system == "x86_64-darwin"
-                then [ "/Users/josecolomer" ]
-                else [ "/home/josecolomer" ];
+    HOME_DIR =
+      if nixpkgs.system == "x86_64-darwin"
+      then ["/Users/josecolomer"]
+      else ["/home/josecolomer"];
   in {
     # Build darwin flake using:
     # $ darwin-rebuild build --flake .#MK7M66VTWLC
-    
+
     darwinConfigurations."MK7M66VTWLC" = nix-darwin.lib.darwinSystem {
       modules = [
         configuration
