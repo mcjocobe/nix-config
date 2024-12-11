@@ -52,7 +52,7 @@
         # rather than one inside an XDG folder:
         # https://github.com/starship/starship/blob/686bda1706e5b409129e6694639477a0f8a3f01b/src/configure.rs#L651
         if [[ ! -f "$HOME/.config/starship.toml" ]]; then
-           export STARSHIP_CONFIG=/Users/josecolomer/.config/starship/starship.toml
+           export STARSHIP_CONFIG=${HOME_DIR}/.config/starship/starship.toml
         fi
         eval "$(${config.programs.starship.package}/bin/starship init zsh)"
       fi
