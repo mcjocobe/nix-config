@@ -48,7 +48,7 @@
         configuration
         ./application-overlays/vscode.nix
         ./system-packages.nix
-	./nixos.nix
+	# ./nixos.nix
 	./hardware-configuration.nix
 	./configuration.nix
         home-manager.darwinModules.home-manager
