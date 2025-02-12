@@ -7,8 +7,10 @@
     vscode-configured = prev.pkgs.vscode-with-extensions.override {
       vscodeExtensions = with prev.pkgs.vscode-extensions; [
         bbenoist.nix
+        eamodio.gitlens
         editorconfig.editorconfig
         esbenp.prettier-vscode
+	grapecity.gc-excelviewer
         kamadorueda.alejandra
         mkhl.direnv
         ms-azuretools.vscode-docker
@@ -17,6 +19,7 @@
         ms-toolsai.jupyter
         ms-vscode-remote.remote-ssh
         tamasfe.even-better-toml
+        zaaack.markdown-editor
       ];
     };
   };
