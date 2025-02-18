@@ -10,13 +10,14 @@
         eamodio.gitlens
         editorconfig.editorconfig
         esbenp.prettier-vscode
-	grapecity.gc-excelviewer
+        grapecity.gc-excelviewer
         kamadorueda.alejandra
         mkhl.direnv
         ms-azuretools.vscode-docker
         ms-python.black-formatter
         ms-python.python
         ms-toolsai.jupyter
+        ms-toolsai.jupyter-renderers
         ms-vscode-remote.remote-ssh
         tamasfe.even-better-toml
         zaaack.markdown-editor

@@ -140,6 +140,7 @@
   # if you don't want to manage your shell through Home Manager.
   home.sessionVariables = {
     EDITOR = "vim";
+    VAULT_ADDR = "https://vault.internal.tiko.ch";
   };
 
   # Let Home Manager install and manage itself.
