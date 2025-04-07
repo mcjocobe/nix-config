@@ -11,12 +11,15 @@
     fzf
     git
     keepassxc
+    lima
+    nix-direnv
     neovim
     nmap
     nodejs
+    pgcli
     postgresql
     prettierd
-    python311
+    python312
     qmk
     ranger
     ripgrep
@@ -25,6 +28,8 @@
     thonny
     tmux
     tree
+    uv
+    vault
     vscode-configured
     # tiko
     mosquitto
