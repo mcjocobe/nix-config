@@ -5,7 +5,7 @@
 }: {
   # Create /etc/zshrc that loads the nix-darwin environment.
   programs.autojump.enable = true;
-  programs.direnv.enable = true;
+  # programs.direnv.enable = true;
   programs.eza.enable = true;
   programs.fzf.enable = true;
   programs.home-manager.enable = true;
@@ -46,6 +46,8 @@
       bindkey "^A" vi-beginning-of-line
       bindkey "^E" vi-end-of-line
 
+      alias -- 'tiko'='cd /Users/josecolomer/Documents/QE/tiko'
+
       if [[ $TERM != "dumb" ]]; then
         # don't set STARSHIP_CONFIG automatically if there's a user-specified
         # config file.  starship appears to use a hardcoded config location
@@ -80,6 +82,15 @@
     plugins = [
       pkgs.vimExtraPlugins.nvim-colorizer-lua
     ];
+  };
+
+  programs.direnv = {
+    enable = true;
+    enableZshIntegration = true; # If you use Zsh
+    # enableBashIntegration = true;  # If you use Bash
+    nix-direnv = {
+      enable = true;
+    };
   };
 
   # Home Manager needs a bit of information about you and the paths it should
