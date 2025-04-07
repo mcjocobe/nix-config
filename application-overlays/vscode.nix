@@ -12,6 +12,7 @@
         esbenp.prettier-vscode
         grapecity.gc-excelviewer
         kamadorueda.alejandra
+        mechatroner.rainbow-csv
         mkhl.direnv
         ms-azuretools.vscode-docker
         ms-python.black-formatter
