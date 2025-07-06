@@ -7,6 +7,7 @@
     vscode-configured = prev.pkgs.vscode-with-extensions.override {
       vscodeExtensions = with prev.pkgs.vscode-extensions; [
         bbenoist.nix
+        dart-code.flutter
         eamodio.gitlens
         editorconfig.editorconfig
         esbenp.prettier-vscode

@@ -4,6 +4,7 @@
     arp-scan
     autojump
     black
+    brave
     direnv
     inetutils
     fasd
