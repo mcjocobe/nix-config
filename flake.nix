@@ -36,6 +36,7 @@
         ./application-overlays/vscode.nix
         ./system-packages.nix
         ./darwin.nix
+        ./scripts.nix
         home-manager.darwinModules.home-manager
         {
           home-manager.useGlobalPkgs = true;
