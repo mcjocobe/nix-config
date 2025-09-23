@@ -15,6 +15,7 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
+  boot.initrd.luks.devices."luks-552df27e-b964-49b8-8abf-f8fbe83d5e0b".device = "/dev/disk/by-uuid/552df27e-b964-49b8-8abf-f8fbe83d5e0b";
   networking.hostName = "nixos"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
@@ -26,22 +27,24 @@
   networking.networkmanager.enable = true;
 
   # Set your time zone.
-  time.timeZone = "Europe/Zurich";
+  time.timeZone = "Europe/Brussels";
 
   # Select internationalisation properties.
   i18n.defaultLocale = "en_US.UTF-8";
 
   # Enable the X11 windowing system.
+  # You can disable this if you're only using the Wayland session.
   services.xserver.enable = true;
 
-  # Enable the GNOME Desktop Environment.
-  services.xserver.displayManager.gdm.enable = true;
-  services.xserver.desktopManager.gnome.enable = true;
+  security.sudo.enable = true;
+  # Enable the KDE Plasma Desktop Environment.
+  services.displayManager.sddm.enable = true;
+  services.desktopManager.plasma6.enable = true;
 
   # Configure keymap in X11
-  services.xserver = {
+  services.xserver.xkb = {
     layout = "us";
-    xkbVariant = "colemak";
+    variant = "colemak";
   };
 
   # Enable CUPS to print documents.
@@ -50,13 +53,6 @@
   # Enable sound with pipewire.
   hardware.pulseaudio.enable = false;
   security.rtkit.enable = true;
-  security.sudo.enable = true;
-
-  # Allow members of the "wheel" group to sudo:
-  security.sudo.configFile = ''
-    %wheel ALL=(ALL) ALL
-  '';
-
   services.pipewire = {
     enable = true;
     alsa.enable = true;
@@ -120,6 +116,5 @@
   # this value at the release version of the first install of this system.
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
-  system.stateVersion = "23.11"; # Did you read the comment?
-  nix.settings.experimental-features = "nix-command flakes";
+  system.stateVersion = "24.11"; # Did you read the comment?
 }

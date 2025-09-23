@@ -1,4 +1,8 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  config,
+  ...
+}: {
   networking.wg-quick.interfaces = let
     server_ip = "138.199.234.219";
   in {
@@ -10,15 +14,15 @@
 
       # To match firewall allowedUDPPorts (without this wg
       # uses random port numbers).
-      listenPort = 51820;
+      listenPort = 30003;
 
       # Path to the private key file.
-      privateKeyFile = "$HOME/.config/wireguard/client-privatekey";
+      privateKeyFile = "${config.users.users."josecolomer".home}/.config/wireguard/client-privatekey";
 
       peers = [
         {
           publicKey = "PCcvplpdBftll4XOUo2a5tb9m5wXbwxN3ojBOcUmRmg=";
-          allowedIPs = ["0.0.0.0/0"];
+          allowedIPs = ["0.0.0.0/0" "::/0"];
           endpoint = "${server_ip}:30003";
           persistentKeepalive = 25;
         }
