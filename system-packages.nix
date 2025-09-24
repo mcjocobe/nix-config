@@ -4,8 +4,7 @@
     arp-scan
     autojump
     black
-    brave
-    direnv
+    devenv
     inetutils
     fasd
     fd
@@ -18,7 +17,6 @@
     nmap
     nodejs
     pgcli
-    postgresql
     prettierd
     python312
     qmk
@@ -32,7 +30,6 @@
     uv
     vault
     vscode-configured
-    # tiko
     mosquitto
     wireguard-go
     wireguard-tools
@@ -41,7 +38,7 @@
     google-chrome
   ];
   fonts.packages = with pkgs; [
-    nerdfonts
+    nerd-fonts
     powerline-fonts
     powerline-symbols
   ];
