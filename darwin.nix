@@ -7,6 +7,9 @@
   #services.karabiner-elements.enable = true;
   # nix.package = pkgs.nix;
 
+  nix.settings.trusted-users = [
+    "josecolomer"
+  ];
   # Necessary for using flakes on this system.
   nix.settings.experimental-features = "nix-command flakes";
 

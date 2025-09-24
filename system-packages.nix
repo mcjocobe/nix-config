@@ -4,19 +4,21 @@
     arp-scan
     autojump
     black
-    direnv
+    devenv
     inetutils
     fasd
     fd
     fzf
     git
     keepassxc
+    lima
+    nix-direnv
     neovim
     nmap
     nodejs
-    postgresql
+    pgcli
     prettierd
-    python311
+    python312
     qmk
     ranger
     ripgrep
@@ -25,8 +27,9 @@
     thonny
     tmux
     tree
+    uv
+    vault
     vscode-configured
-    # tiko
     mosquitto
     wireguard-go
     wireguard-tools
@@ -35,7 +38,10 @@
     google-chrome
   ];
   fonts.packages = with pkgs; [
-    nerdfonts
+    nerd-fonts.fira-code
+    nerd-fonts.droid-sans-mono
+
+    nerd-fonts.symbols-only
     powerline-fonts
     powerline-symbols
   ];

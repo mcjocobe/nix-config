@@ -5,7 +5,7 @@
 }: {
   # Create /etc/zshrc that loads the nix-darwin environment.
   programs.autojump.enable = true;
-  programs.direnv.enable = true;
+  # programs.direnv.enable = true;
   programs.eza.enable = true;
   programs.fzf.enable = true;
   programs.home-manager.enable = true;
@@ -46,13 +46,15 @@
       bindkey "^A" vi-beginning-of-line
       bindkey "^E" vi-end-of-line
 
+      alias -- 'tiko'='cd /Users/josecolomer/Documents/QE/tiko'
+
       if [[ $TERM != "dumb" ]]; then
         # don't set STARSHIP_CONFIG automatically if there's a user-specified
         # config file.  starship appears to use a hardcoded config location
         # rather than one inside an XDG folder:
         # https://github.com/starship/starship/blob/686bda1706e5b409129e6694639477a0f8a3f01b/src/configure.rs#L651
         if [[ ! -f "$HOME/.config/starship.toml" ]]; then
-           export STARSHIP_CONFIG=${HOME_DIR}/.config/starship/starship.toml
+           export STARSHIP_CONFIG=$HOME/.config/starship/starship.toml
         fi
         eval "$(${config.programs.starship.package}/bin/starship init zsh)"
       fi
@@ -80,6 +82,15 @@
     plugins = [
       pkgs.vimExtraPlugins.nvim-colorizer-lua
     ];
+  };
+
+  programs.direnv = {
+    enable = true;
+    enableZshIntegration = true; # If you use Zsh
+    # enableBashIntegration = true;  # If you use Bash
+    nix-direnv = {
+      enable = true;
+    };
   };
 
   # Home Manager needs a bit of information about you and the paths it should
@@ -140,6 +151,7 @@
   # if you don't want to manage your shell through Home Manager.
   home.sessionVariables = {
     EDITOR = "vim";
+    VAULT_ADDR = "https://vault.internal.tiko.ch";
   };
 
   # Let Home Manager install and manage itself.
