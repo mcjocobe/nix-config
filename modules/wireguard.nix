@@ -4,7 +4,7 @@
   ...
 }: {
   networking.wg-quick.interfaces = let
-    server_ip = "138.199.234.219";
+    server_ip = "138.199.234.210";
   in {
     wg0 = {
       # IP address of this machine in the *tunnel network*
@@ -18,6 +18,8 @@
 
       # Path to the private key file.
       privateKeyFile = "${config.users.users."josecolomer".home}/.config/wireguard/client-privatekey";
+      dns = ["1.1.1.1"];
+      # dns = ["127.0.0.1"];
 
       peers = [
         {

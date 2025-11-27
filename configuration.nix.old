@@ -15,7 +15,6 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  boot.initrd.luks.devices."luks-552df27e-b964-49b8-8abf-f8fbe83d5e0b".device = "/dev/disk/by-uuid/552df27e-b964-49b8-8abf-f8fbe83d5e0b";
   networking.hostName = "nixos"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
@@ -27,34 +26,37 @@
   networking.networkmanager.enable = true;
 
   # Set your time zone.
-  time.timeZone = "Europe/Brussels";
+  time.timeZone = "Europe/Zurich";
 
   # Select internationalisation properties.
   i18n.defaultLocale = "en_US.UTF-8";
 
   # Enable the X11 windowing system.
-  # You can disable this if you're only using the Wayland session.
   services.xserver.enable = true;
 
-  security.sudo.enable = true;
-  # Enable the KDE Plasma Desktop Environment.
-  services.displayManager.sddm.enable = true;
-  services.desktopManager.plasma6.enable = true;
+  # Enable the GNOME Desktop Environment.
+  services.xserver.displayManager.gdm.enable = true;
+  services.xserver.desktopManager.gnome.enable = true;
 
   # Configure keymap in X11
-  services.xserver.xkb = {
-    layout = "us";
-    variant = "colemak";
+  services.xserver = {
+    xkb.layout = "us";
+    xkbVariant = "colemak";
   };
 
   # Enable CUPS to print documents.
   services.printing.enable = true;
 
-  powerManagement.enable = false;
-
   # Enable sound with pipewire.
-  services.pulseaudio.enable = false;
+  hardware.pulseaudio.enable = false;
   security.rtkit.enable = true;
+  security.sudo.enable = true;
+
+  # Allow members of the "wheel" group to sudo:
+  security.sudo.configFile = ''
+    %wheel ALL=(ALL) ALL
+  '';
+
   services.pipewire = {
     enable = true;
     alsa.enable = true;
@@ -77,28 +79,21 @@
     description = "josecolomer";
     extraGroups = ["networkmanager" "wheel"];
     packages = with pkgs; [
-      kdePackages.kate
+      firefox
       #  thunderbird
     ];
   };
-
-  # Install firefox.
-  programs.firefox.enable = true;
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
-  environment = {
-    variables = {
-      HOME = "/home/josecolomer";
-    };
-    systemPackages = with pkgs; [
-      #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-      #  wget
-    ];
-  };
+  environment.systemPackages = with pkgs; [
+    vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
+    wget
+    git
+  ];
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
@@ -111,57 +106,13 @@
   # List services that you want to enable:
 
   # Enable the OpenSSH daemon.
-  services.openssh.enable = true;
-  programs.ssh.startAgent = true;
+  # services.openssh.enable = true;
+
   # Open ports in the firewall.
-  networking.firewall.allowedTCPPorts = [22];
-  # networking.firewall.allowedUDPPorts = [config.networking.wg-quick.interfaces.wg0.listenPort];
-  networking.firewall.allowedUDPPorts = [30003 config.networking.wg-quick.interfaces.wg0.listenPort];
+  # networking.firewall.allowedTCPPorts = [ ... ];
+  # networking.firewall.allowedUDPPorts = [ ... ];
   # Or disable the firewall altogether.
   # networking.firewall.enable = false;
-
-  # networking = {
-  #   nameservers = ["127.0.0.1" "::1"];
-  #   # If using dhcpcd:
-  #   # dhcpcd.extraConfig = "nohook resolv.conf";
-  #   # If using NetworkManager:
-  #   networkmanager.dns = "none";
-  # };
-
-  # services = {
-  #   dnsmasq = {
-  #     enable = true;
-  #     settings.interface = "wg0";
-  #   };
-  # };
-
-  hardware.bluetooth = {
-    enable = true;
-    powerOnBoot = true;
-  };
-
-  # services.dnscrypt-proxy2 = {
-  #   enable = true;
-  #   # Settings reference:
-  #   # https://github.com/DNSCrypt/dnscrypt-proxy/blob/master/dnscrypt-proxy/example-dnscrypt-proxy.toml
-  #   settings = {
-  #     ipv6_servers = true;
-  #     require_dnssec = true;
-  #     # Add this to test if dnscrypt-proxy is actually used to resolve DNS requests
-  #     # query_log.file = "/var/log/dnscrypt-proxy/query.log";
-  #     sources.public-resolvers = {
-  #       urls = [
-  #         "https://raw.githubusercontent.com/DNSCrypt/dnscrypt-resolvers/master/v3/public-resolvers.md"
-  #         "https://download.dnscrypt.info/resolvers-list/v3/public-resolvers.md"
-  #       ];
-  #       cache_file = "/var/cache/dnscrypt-proxy/public-resolvers.md";
-  #       minisign_key = "RWQf6LRCGA9i53mlYecO4IzT51TGPpvWucNSCh1CBM0QTaLn73Y7GFO3";
-  #     };
-
-  #     # You can choose a specific set of servers from https://github.com/DNSCrypt/dnscrypt-resolvers/blob/master/v3/public-resolvers.md
-  #     # server_names = [ ... ];
-  #   };
-  # };
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
@@ -169,5 +120,6 @@
   # this value at the release version of the first install of this system.
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
-  system.stateVersion = "24.11"; # Did you read the comment?
+  system.stateVersion = "23.11"; # Did you read the comment?
+  nix.settings.experimental-features = "nix-command flakes";
 }
