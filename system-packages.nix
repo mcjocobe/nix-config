@@ -4,16 +4,17 @@
     arp-scan
     autojump
     black
-    devenv
+    # devenv
     inetutils
     fasd
     fd
+    freerdp
     fzf
     git
     keepassxc
     lima
     nix-direnv
-    neovim
+    # neovim
     nmap
     nodejs
     pgcli
@@ -29,8 +30,8 @@
     tree
     uv
     vault
-    vscode-configured
     mosquitto
+    nvim-pkg
     wireguard-go
     wireguard-tools
     wireshark
@@ -38,10 +39,11 @@
     google-chrome
   ];
   fonts.packages = with pkgs; [
-    nerd-fonts.fira-code
-    nerd-fonts.droid-sans-mono
+    nerdfonts
+    # nerd-fonts.fira-code
+    # nerd-fonts.droid-sans-mono
 
-    nerd-fonts.symbols-only
+    # nerd-fonts.symbols-only
     powerline-fonts
     powerline-symbols
   ];

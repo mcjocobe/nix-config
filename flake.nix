@@ -34,6 +34,7 @@
       modules = [
         configuration
         ./application-overlays/vscode.nix
+        ./application-overlays/nvim.nix
         ./system-packages.nix
         ./darwin.nix
         ./scripts.nix
