@@ -30,4 +30,5 @@ in {
   nixpkgs.overlays = [
     vscode-overlay
   ];
+  environment.systemPackages = [pkgs.vscode-configured];
 }
