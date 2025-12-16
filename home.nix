@@ -38,7 +38,7 @@
     # initExtra = ''
     #   [[ ! -f $(./p10k.zsh) ]] || source $(./p10k.zsh)
     # '';
-    initExtra = ''
+    initContent = ''
       export PATH=$PATH:/etc/profiles/per-user/josecolomer/bin
       export PATH=$PATH:/run/current-system/sw/bin
       export PATH=$PATH:/usr/local/bin
