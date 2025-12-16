@@ -30,7 +30,7 @@
     # Build darwin flake using:
     # $ darwin-rebuild build --flake .#MK7M66VTWLC
 
-    darwinConfigurations."MK7M66VTWLC" = nix-darwin.lib.darwinSystem {
+    darwinConfigurations."Joses-Air" = nix-darwin.lib.darwinSystem {
       modules = [
         configuration
         ./application-overlays/vscode.nix
@@ -72,7 +72,7 @@
     };
 
     # Expose the package set, including overlays, for convenience.
-    darwinPackages = self.darwinConfigurations."MK7M66VTWLC".pkgs;
+    darwinPackages = self.darwinConfigurations."Joses-Air".pkgs;
     nixosPackages = self.nixosConfigurations."nixos".pkgs;
   };
 }
