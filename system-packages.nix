@@ -4,39 +4,26 @@
     arp-scan
     autojump
     black
-    # devenv
     inetutils
     fasd
     fd
-    freerdp
     fzf
     git
-    keepassxc
-    lima
-    nix-direnv
-    # neovim
+    # nix-direnv
     nmap
-    nodejs
     pgcli
-    prettierd
     python312
     qmk
     ranger
     ripgrep
-    sops
     starship
-    thonny
     tmux
     tree
     uv
-    vault
-    mosquitto
     nvim-pkg
     wireguard-go
     wireguard-tools
-    wireshark
     # Casks
-    google-chrome
   ];
   fonts.packages = with pkgs; [
     nerd-fonts.fira-code

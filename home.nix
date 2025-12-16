@@ -39,14 +39,12 @@
     #   [[ ! -f $(./p10k.zsh) ]] || source $(./p10k.zsh)
     # '';
     initContent = ''
-      export PATH=$PATH:/etc/profiles/per-user/josecolomer/bin
+      export PATH=$PATH:/etc/profiles/per-user/joseluiscolomer/bin
       export PATH=$PATH:/run/current-system/sw/bin
       export PATH=$PATH:/usr/local/bin
 
       bindkey "^A" vi-beginning-of-line
       bindkey "^E" vi-end-of-line
-
-      alias -- 'tiko'='cd /Users/josecolomer/Documents/QE/tiko'
 
       if [[ $TERM != "dumb" ]]; then
         # don't set STARSHIP_CONFIG automatically if there's a user-specified

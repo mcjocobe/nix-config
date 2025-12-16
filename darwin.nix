@@ -8,7 +8,7 @@
   # nix.package = pkgs.nix;
 
   nix.settings.trusted-users = [
-    "josecolomer"
+    "joseluiscolomer"
   ];
   # Necessary for using flakes on this system.
   nix.settings.experimental-features = "nix-command flakes";
@@ -21,8 +21,8 @@
   nixpkgs.hostPlatform = "aarch64-darwin";
   nixpkgs.config.allowUnfree = true;
 
-  users.users.josecolomer = {
-    name = "josecolomer";
-    home = "/Users/josecolomer";
+  users.users.joseluiscolomer = {
+    name = "joseluiscolomer";
+    home = "/Users/joseluiscolomer";
   };
 }
