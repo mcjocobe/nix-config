@@ -91,6 +91,17 @@
     };
   };
 
+  programs.vscode = {
+    profiles.default.userSettings = {
+      "editor.formatOnSave" = true;
+
+      # Example: Python with Black
+      "[python]" = {
+        "editor.defaultFormatter" = "ms-python.black-formatter";
+      };
+    };
+  };
+
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
 

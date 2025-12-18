@@ -10,6 +10,7 @@
     fzf
     git
     # nix-direnv
+    hey
     nmap
     pgcli
     python312
