@@ -11,6 +11,7 @@
     git
     # nix-direnv
     hey
+    lima
     nmap
     pgcli
     python312
