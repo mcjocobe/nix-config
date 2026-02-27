@@ -17,7 +17,10 @@
         ms-azuretools.vscode-docker
         ms-python.black-formatter
         ms-python.python
+        ms-python.vscode-pylance
+        ms-toolsai.jupyter
         ms-vscode-remote.remote-ssh
+        scala-lang.scala
         tamasfe.even-better-toml
         zaaack.markdown-editor
       ];
