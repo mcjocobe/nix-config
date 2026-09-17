@@ -21,6 +21,7 @@
         ms-toolsai.jupyter
         ms-vscode-remote.remote-ssh
         scala-lang.scala
+        scalameta.metals
         tamasfe.even-better-toml
         zaaack.markdown-editor
       ];
