@@ -37,7 +37,7 @@
         ./application-overlays/nvim.nix
         ./system-packages.nix
         ./darwin.nix
-        # ./scripts.nix
+        ./scripts.nix
         home-manager.darwinModules.home-manager
         {
           home-manager.useGlobalPkgs = true;
