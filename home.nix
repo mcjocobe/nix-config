@@ -46,6 +46,9 @@
       bindkey "^A" vi-beginning-of-line
       bindkey "^E" vi-end-of-line
 
+      alias limaDeleteAll='for i in $(limactl list --json | jq .name | tr -d '"'); do\nlimactl delete $i\ndone\n'
+      alias limaStopAll='for i in $(limactl list --json | jq .name | tr -d '"'); do\nlimactl stop $i\ndone\n'
+
       if [[ $TERM != "dumb" ]]; then
         # don't set STARSHIP_CONFIG automatically if there's a user-specified
         # config file.  starship appears to use a hardcoded config location
