@@ -1,6 +1,7 @@
 {
   config,
   pkgs,
+  HOME_DIR,
   ...
 }: {
   # Create /etc/zshrc that loads the nix-darwin environment.
@@ -30,7 +31,7 @@
         "suffix-alias" = "fg=#a6d56e";
       };
     };
-    dotDir = ".config/zsh";
+    dotDir = "${HOME_DIR}/.config/zsh";
     enable = true;
     enableCompletion = true;
     history.ignoreAllDups = true;

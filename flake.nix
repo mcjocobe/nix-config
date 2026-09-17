@@ -22,10 +22,6 @@
       # Set Git commit hash for darwin-version.
       system.configurationRevision = self.rev or self.dirtyRev or null;
     };
-    HOME_DIR =
-      if nixpkgs.system == "x86_64-darwin"
-      then ["/Users/joseluiscolomer"]
-      else ["/home/joseluiscolomer"];
   in {
     # Build darwin flake using:
     # $ darwin-rebuild build --flake .#MK7M66VTWLC
@@ -43,6 +39,7 @@
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
           home-manager.users.joseluiscolomer = import ./home.nix;
+          home-manager.extraSpecialArgs = {HOME_DIR = "/Users/joseluiscolomer";};
 
           # Optionally, use home-manager.extraSpecialArgs to pass
           # arguments to home.nix
@@ -63,6 +60,7 @@
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
           home-manager.users.josecolomer = import ./home.nix;
+          home-manager.extraSpecialArgs = {HOME_DIR = "/home/joseluiscolomer";};
 
           # Optionally, use home-manager.extraSpecialArgs to pass
           # arguments to home.nix
