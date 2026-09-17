@@ -2,10 +2,10 @@
   description = "Example Darwin system flake";
 
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.05";
-    nix-darwin.url = "github:LnL7/nix-darwin";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-26.05";
+    nix-darwin.url = "github:nix-darwin/nix-darwin/nix-darwin-26.05";
     nix-darwin.inputs.nixpkgs.follows = "nixpkgs";
-    home-manager.url = "github:nix-community/home-manager/release-25.05";
+    home-manager.url = "github:nix-community/home-manager/release-26.05";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
   };
 
@@ -37,7 +37,7 @@
         ./application-overlays/nvim.nix
         ./system-packages.nix
         ./darwin.nix
-        ./scripts.nix
+        # ./scripts.nix
         home-manager.darwinModules.home-manager
         {
           home-manager.useGlobalPkgs = true;

@@ -5,7 +5,6 @@
     autojump
     black
     inetutils
-    fasd
     fd
     fzf
     git
