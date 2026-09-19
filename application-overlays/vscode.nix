@@ -10,6 +10,8 @@
         eamodio.gitlens
         editorconfig.editorconfig
         esbenp.prettier-vscode
+        github.copilot
+        github.copilot-chat
         humao.rest-client
         kamadorueda.alejandra
         mechatroner.rainbow-csv
